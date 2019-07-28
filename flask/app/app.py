@@ -1,12 +1,10 @@
-from app import server
-import flask
-from flask import render_template
-
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
-
-# server = flask.Flask(__name__)
+import flask
+# import views
+# import admin_views
+server = flask.Flask(__name__)
 app = dash.Dash(__name__, server=server, url_base_pathname='/dashapp/')
 app.layout = html.Div(children=[
     html.H1(children='Hello Dash'),
@@ -30,12 +28,16 @@ app.layout = html.Div(children=[
     )
 ])
 
-
-
-@server.route("/")
+@server.route('/')
 def index():
-    return render_template("public/index.html")
+    return '''
+<html>
+<div>
+    <h1>Flask App</h1>
+    <a class="nav-link" href="/dashapp">Dash</a>
+</div>
+</html>
+'''
 
-@server.route("/about")
-def about():
-    return render_template("public/about.html")
+if __name__ == '__main__':
+    server.run(debug=True)

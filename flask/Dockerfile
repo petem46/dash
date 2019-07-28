@@ -11,7 +11,7 @@ ADD . /app
 RUN pip install --upgrade pip
 
 # Install uwsgi
-# RUN pip install uwsgi
+RUN pip install uwsgi
 
 # Install the dependencies
 RUN pip install -r requirements.txt
