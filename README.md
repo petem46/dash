@@ -1,7 +1,11 @@
 # dash
-plot.ly Dash inside Flask using Docker with Nginx
+plot.ly Dash with bootstrap inside Flask using Docker with Nginx
 
-# get rolling
+#get rolling local dev server
+cd flask
+flask run
+
+# get rolling with DOCKER
 docker-compose build
 
 docker-compose up
