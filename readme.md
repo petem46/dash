@@ -1,5 +1,5 @@
 # dash
-plot.ly Dash inside Flask using Docker with Nginx
+plot.ly Dash with bootstrap inside Flask using Docker with Nginx
 
 #get rolling local dev server
 cd flask
