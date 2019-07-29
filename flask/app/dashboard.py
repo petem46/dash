@@ -46,48 +46,98 @@ dashboard = dash.Dash(__name__,
             external_scripts=external_scripts,
             external_stylesheets=external_stylesheets)
 
-dashboard.layout = html.Div(children=[
-    html.H1(children='Hello From Dash In Flask in DOCKER through Nginx',className='bg-success'),
-
-    html.Div(children='''
-        Dash: A web application framework for Python.
-    '''),
-
-    html.Div(dcc.Input(id='input', value='Text', type='text')),
-    html.Div(id='output'),
-
-    html.Label(['', html.A('Home', href='/')]),
-
+dashboard.layout = html.Div([
+    html.H1('Hello From Dash In Flask in Docker through Nginx',className='bg-info text-center'),
     html.Div([
-        dcc.Graph(
-            id='example-graph1',
-            figure={
-                'data': [
-                    {'x': [1, 2, 3], 'y': [4, 1, 2], 'type': 'bar', 'name': 'SF'},
-                    {'x': [1, 2, 3], 'y': [2, 4, 5], 'type': 'bar', 'name': u'Montréal'},
-                ],
-                'layout': {
-                    'title': 'Dash Data Visualization'
-                }
-            }
-    )],className='bg-danger col-6 mx-0 px-0',id='graph_div1'),
-
-
+        html.Div('Dash: A web application framework for Python.'),
+        html.Div(dcc.Input(id='input', value='Callback Text Demo', type='text')),
+        html.Div(id='output'),
+        html.Label(['', html.A('Home', href='/')])
+    ],className="px-3 mx-5 mb-3 bg-white"),
+    #dashboard row 1
     html.Div([
-        dcc.Graph(
-            id='example-graph2',
-            figure={
-                'data': [
-                    {'x': [1, 2, 3], 'y': [4, 1, 2], 'type': 'bar', 'name': 'SF'},
-                    {'x': [1, 2, 3], 'y': [2, 4, 5], 'type': 'bar', 'name': u'Montréal'},
-                ],
-                'layout': {
-                    'title': 'Dash Data Visualization'
+        #graph col-8 width
+        html.Div([
+            dcc.Graph(
+                id='example-graph1-1',
+                figure={
+                    'data': [
+                        {'x': [1, 2, 3], 'y': [4, 1, 2], 'type': 'bar', 'name': 'SF'},
+                        {'x': [1, 2, 3], 'y': [2, 4, 5], 'type': 'bar', 'name': u'Montréal'},
+                    ],
+                    'layout': {
+                        'title': 'Chart 1-1 col-8',
+                        'legend': {
+                            'orientation': 'h',
+                            'xanchor': 'center',
+                            'x':'0.5',
+                            'bordercolor': 'grey',
+                            'borderwidth': '1',
+                        },
+                    }
                 }
-            }
-    )],className='bg-danger col-6 mx-0 px-0',id='graph_div2')
-
-],className='container')
+        )],className='col-8',id='graph_div1-1'),
+        # graph col-4 width
+        html.Div([
+            dcc.Graph(
+                id='example-graph1-2',
+                figure={
+                    'data': [
+                        {'x': [1, 2, 3], 'y': [4, 1, 2], 'type': 'bar', 'name': 'SF'},
+                        {'x': [1, 2, 3], 'y': [2, 4, 5], 'type': 'bar', 'name': u'Montréal'},
+                    ],
+                    'layout': {
+                        'title': 'Chart 1-2 col-4'
+                    }
+                }
+        )],className='col-4',id='graph_div1-2')
+    ],className="row px-5 mb-3"),
+    # dashboard row 2
+    html.Div([
+        #graph col-4 width
+        html.Div([
+            dcc.Graph(
+                id='example-graph2-1',
+                figure={
+                    'data': [
+                        {'x': [1, 2, 3], 'y': [4, 1, 2], 'type': 'bar', 'name': 'SF'},
+                        {'x': [1, 2, 3], 'y': [2, 4, 5], 'type': 'bar', 'name': u'Montréal'},
+                    ],
+                    'layout': {
+                        'title': 'Chart 2-1 col-4'
+                    }
+                }
+        )],className='col-4',id='graph_div2-1'),
+        # graph col-4 width
+        html.Div([
+            dcc.Graph(
+                id='example-graph2-2',
+                figure={
+                    'data': [
+                        {'x': [1, 2, 3], 'y': [4, 1, 2], 'type': 'bar', 'name': 'SF'},
+                        {'x': [1, 2, 3], 'y': [2, 4, 5], 'type': 'bar', 'name': u'Montréal'},
+                    ],
+                    'layout': {
+                        'title': 'Chart 2-2 col-4'
+                    }
+                }
+        )],className='col-4',id='graph_div2-2'),
+        # graph col-4 width
+        html.Div([
+            dcc.Graph(
+                id='example-graph2-3',
+                figure={
+                    'data': [
+                        {'x': [1, 2, 3], 'y': [4, 1, 2], 'type': 'bar', 'name': 'SF'},
+                        {'x': [1, 2, 3], 'y': [2, 4, 5], 'type': 'bar', 'name': u'Montréal'},
+                    ],
+                    'layout': {
+                        'title': 'Chart 2-3 col-4'
+                    }
+                }
+        )],className='col-4',id='graph_div2-3')
+    ],className="row px-5 mb-3"),
+],style={'background-color1':'teal'},className='pb-5 bg-secondary')
 
 
 @dashboard.callback(
